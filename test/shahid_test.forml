@@ -10,21 +10,22 @@ module testmod
   foo x y_ = z
 
   -- TODO FIXME XXX NOTE should be highlighted
+
   -- inline is a keyword
   inline object? x y = do!``
 
-  >>= x y = x >> y
+  -- >>= x y = x >> y
 
   -- edit javascript using C-c C-j
   do! x   <- `1 + 4`
-    y   <- `2 + 3`
-    z   <- `// this is unnecessarily long to demonstrate the javascript editing in forml-mode
+      y   <- `2 + 3`
+      z   <- `// this is unnecessarily long to demonstrate the javascript editing in forml-mode
 
-            function log(x, y) {
-              return Math.log(x) / Math.log(Math.E);
-            }`
-    ans <- `x + y`
-    return (10 == ans)
+              function log(x, y) {
+                return Math.log(x) / Math.log(Math.E);
+              }`
+      ans <- `x + y`
+      return (10 == ans)
 
 
   foo: JS a -> JS b
@@ -34,5 +35,8 @@ module testmod
   fib 0 = 0 | 1 = 1 | n = fib(n - 1) + fib(n - 2)
 
   bar x y z == x * y * z
+
+  true == true
+  false == false
 
   let x = "foo"

@@ -21,7 +21,8 @@ syn match javascriptOpenClose '`'
 syn keyword formlNestedKeywords let open nextgroup=formlBinding skipwhite
 syn keyword formlTopKeywords    module   nextgroup=formlBinding skipwhite
 
-
+"contains=formlSpecialChar
+syn region formlString start=+"+ skip=/[^"\\]*/  end=+"+
 " need to fix this
 " syn region javascriptBlock start="`" end="`" fold transparent contains=
 
@@ -39,5 +40,6 @@ hi def link formlOperator       Operator
 hi def link formlSpecial        Special
 hi def link formlBinding        Function
 hi def link formlBool           Boolean
+hi def link formlString         String
 
 hi def link javascriptOpenClose SpecialChar

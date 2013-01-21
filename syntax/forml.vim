@@ -21,6 +21,10 @@ syn keyword formlTopKeywords    module   nextgroup=formlBinding skipwhite
 " need to fix this
 syn region formlBlock start="{" end="}" fold transparent contains=formlNestedKeywords
 
-
+syn keyword celTodo contained TODO FIXME XXX NOTE
+syn match celComment "--.*$" contains=celTodo
 
 let b:current_syntax = "forml"
+
+hi def link celTodo        Todo
+hi def link celComment     Comment

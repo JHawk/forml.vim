@@ -1,6 +1,6 @@
 -- forml mode test
 
--- function names are highlighted ed
+-- function names are highlighted
 module testmod
   foo x y = z
 

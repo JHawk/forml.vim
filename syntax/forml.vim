@@ -3,6 +3,7 @@
 " Maintainer: Joshua Hawkins <josh.r.hawk@gmail.com>
 " Version: 0.1
 " Latest Revision: 1 Jan 2013
+" URL: https://github.com/JHawk/forml.vim
 
 if version < 600
   syn clear
@@ -12,17 +13,21 @@ endif
 
 syn match formlBinding   '\[a-z]\+'
 syn match formlSpecial   "\<inline\>"
-syn match formlOperator  "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#$%&\*\+/<=>\?@\\^|~.][-!#$%&\*\+/<=>\?@\\^|~:.]*"
+syn match formlOperator  "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
 syn match formlBool      "\<\(true\|false\)\>" 
 syn match formlNumber    '\[0-9]\+'
 syn match formlStatement "\<\(do!\)\>" 
+syn match formlDelimiter "(\|)\|\[\|\]\|{\|}"
 
 syn match javascriptOpenClose '`'
 
 syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
-syn keyword formlTopKeywords    module   nextgroup=formlBinding skipwhite
+syn keyword formlTopKeywords    module      nextgroup=formlBinding skipwhite
 
 syn region formlString start=+"+ skip=+\\\\\|\\"+ end=+"+
+
+syn match formlPair contained '\[a-z]\+'
+syn cluster formlCluster contains=@formlBinding
 
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 syn match   formlComment "--.*$" contains=formlTodo
@@ -40,5 +45,6 @@ hi def link formlBinding        Function
 hi def link formlBool           Boolean
 hi def link formlString         String
 hi def link formlStatement      Label
+hi def link formlDelimiter      Delimiter
 
 hi def link javascriptOpenClose SpecialChar

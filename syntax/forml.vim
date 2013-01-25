@@ -17,8 +17,9 @@ syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@
 syn match formlBool           "\<\(true\|false\)\>" 
 syn match formlStatement      "\<\(do!\)\>" 
 syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
+syn match formlType           "\(\<[A-Z][a-zA-Z0-9']*\)\=\<[A-Z][a-zA-Z0-9']*\>"
+syn match formlNumber         "\<-\?[0-9]\+\>"
 syn match javascriptOpenClose '`'
-syn match formlNumber         "\<-\?[0-9]\+M\?\>"
 
 syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
 syn keyword formlTopKeywords    module      nextgroup=formlBinding skipwhite
@@ -40,10 +41,11 @@ hi def link formlNestedKeywords Keyword
 hi def link formlComment        Comment
 hi def link formlOperator       Operator
 hi def link formlSpecial        Special
-hi def link formlBinding        Function
+"hi def link formlBinding        Todo
 hi def link formlBool           Boolean
 hi def link formlString         String
 hi def link formlStatement      Label
 hi def link formlDelimiter      Delimiter
+hi def link formlType           Typedef
 
 hi def link javascriptOpenClose SpecialChar

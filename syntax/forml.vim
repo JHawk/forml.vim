@@ -10,21 +10,19 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn match formlBinding  '\[a-z]\+'
-syn match formlSpecial  "\<inline\>"
-syn match formlOperator "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#$%&\*\+/<=>\?@\\^|~.][-!#$%&\*\+/<=>\?@\\^|~:.]*"
-syn match formlBool     "\<\(true\|false\)\>" 
-syn match formlNumber   '\[0-9]\+'
+syn match formlBinding   '\[a-z]\+'
+syn match formlSpecial   "\<inline\>"
+syn match formlOperator  "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#$%&\*\+/<=>\?@\\^|~.][-!#$%&\*\+/<=>\?@\\^|~:.]*"
+syn match formlBool      "\<\(true\|false\)\>" 
+syn match formlNumber    '\[0-9]\+'
+syn match formlStatement "\<\(do!\)\>" 
 
 syn match javascriptOpenClose '`'
 
-syn keyword formlNestedKeywords let open nextgroup=formlBinding skipwhite
+syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
 syn keyword formlTopKeywords    module   nextgroup=formlBinding skipwhite
 
-"contains=formlSpecialChar
-syn region formlString start=+"+ skip=/[^"\\]*/  end=+"+
-" need to fix this
-" syn region javascriptBlock start="`" end="`" fold transparent contains=
+syn region formlString start=+"+ skip=+\\\\\|\\"+ end=+"+
 
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 syn match   formlComment "--.*$" contains=formlTodo
@@ -41,5 +39,6 @@ hi def link formlSpecial        Special
 hi def link formlBinding        Function
 hi def link formlBool           Boolean
 hi def link formlString         String
+hi def link formlStatement      Label
 
 hi def link javascriptOpenClose SpecialChar

@@ -11,14 +11,14 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn match formlBinding        '\[a-z]\+'
 syn match formlSpecial        "\<inline\>"
 syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~:.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
 syn match formlBool           "\<\(true\|false\)\>" 
 syn match formlStatement      "\<\(do!\)\>" 
 syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
-syn match formlType           "\(\<[A-Z][a-zA-Z0-9']*\)\=\<[A-Z][a-zA-Z0-9']*\>"
 syn match formlNumber         "\<-\?[0-9]\+\>"
+syn match formlBinding        "\(\<[a-z][a-zA-Z0-9_']*\)\=\<[a-z][a-zA-Z0-9_']*\>"
+syn match formlType           "\(\<[A-Z][a-zA-Z0-9_']*\)\=\<[A-Z][a-zA-Z0-9_']*\>"
 syn match javascriptOpenClose '`'
 
 syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
@@ -41,7 +41,7 @@ hi def link formlNestedKeywords Keyword
 hi def link formlComment        Comment
 hi def link formlOperator       Operator
 hi def link formlSpecial        Special
-"hi def link formlBinding        Todo
+" hi def link formlBinding        Function
 hi def link formlBool           Boolean
 hi def link formlString         String
 hi def link formlStatement      Label

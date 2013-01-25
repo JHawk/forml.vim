@@ -11,15 +11,14 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn match formlBinding   '\[a-z]\+'
-syn match formlSpecial   "\<inline\>"
-syn match formlOperator  "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
-syn match formlBool      "\<\(true\|false\)\>" 
-syn match formlNumber    '\[0-9]\+'
-syn match formlStatement "\<\(do!\)\>" 
-syn match formlDelimiter "(\|)\|\[\|\]\|{\|}"
-
+syn match formlBinding        '\[a-z]\+'
+syn match formlSpecial        "\<inline\>"
+syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~:.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
+syn match formlBool           "\<\(true\|false\)\>" 
+syn match formlStatement      "\<\(do!\)\>" 
+syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
 syn match javascriptOpenClose '`'
+syn match formlNumber         "\<-\?[0-9]\+M\?\>"
 
 syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
 syn keyword formlTopKeywords    module      nextgroup=formlBinding skipwhite
@@ -34,7 +33,7 @@ syn match   formlComment "--.*$" contains=formlTodo
 
 let b:current_syntax = "forml"
 
-hi def link formlNumber         Todo
+hi def link formlNumber         Number
 hi def link formlTodo           Todo
 hi def link formlTopKeywords    Structure
 hi def link formlNestedKeywords Keyword

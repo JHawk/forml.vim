@@ -11,22 +11,23 @@ elseif exists("b:current_syntax")
   finish
 endif
 
-syn match formlSpecial        "\<inline\>"
+syn match formlSpecial        "\<\(inline\)\>"
+
+"syn match formlExist          "\(\<[a-z][a-zA-Z0-9_'][\?]*\)\=\<[a-z][a-zA-Z0-9_'][\?]*\>"
 syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~:.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
 syn match formlBool           "\<\(true\|false\)\>" 
-syn match formlStatement      "\<\(do!\)\>" 
+syn match formlStatement      "\<\(do!\|do\|return\|if\|then\|else\|yield\)\>" 
 syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
 syn match formlNumber         "\<-\?[0-9]\+\>"
-syn match formlBinding        "\(\<[a-z][a-zA-Z0-9_']*\)\=\<[a-z][a-zA-Z0-9_']*\>"
+"syn match formlBinding        "\(\<[a-z][a-zA-Z0-9_']*\)\=\<[a-z][a-zA-Z0-9_']*\>"
 syn match formlType           "\(\<[A-Z][a-zA-Z0-9_']*\)\=\<[A-Z][a-zA-Z0-9_']*\>"
 syn match javascriptOpenClose '`'
 
-syn keyword formlNestedKeywords let open as nextgroup=formlBinding skipwhite
-syn keyword formlTopKeywords    module      nextgroup=formlBinding skipwhite
+syn keyword formlNestedKeywords let open as module nextgroup=formlBinding skipwhite
 
 syn region formlString start=+"+ skip=+\\\\\|\\"+ end=+"+
 
-syn match formlPair contained '\[a-z]\+'
+"syn match formlPair contained '\[a-z]\+'
 syn cluster formlCluster contains=@formlBinding
 
 syn keyword formlTodo contained TODO FIXME XXX NOTE
@@ -47,5 +48,6 @@ hi def link formlString         String
 hi def link formlStatement      Label
 hi def link formlDelimiter      Delimiter
 hi def link formlType           Typedef
+hi def link formlExist          Todo
 
 hi def link javascriptOpenClose SpecialChar

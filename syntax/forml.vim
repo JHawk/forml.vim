@@ -21,11 +21,14 @@ syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
 syn match formlNumber         "\<-\?[0-9]\+\>"
 "syn match formlBinding        "\(\<[a-z][a-zA-Z0-9_']*\)\=\<[a-z][a-zA-Z0-9_']*\>"
 syn match formlType           "\(\<[A-Z][a-zA-Z0-9_']*\)\=\<[A-Z][a-zA-Z0-9_']*\>"
-syn match javascriptOpenClose '`'
+syn match javascriptOpenClose '`' display
 
 syn keyword formlNestedKeywords let open as module nextgroup=formlBinding skipwhite
 
-syn region formlString start=+"+ skip=+\\\\\|\\"+ end=+"+
+syn region  formlInterpolation matchgroup=javascriptOpenClose start="`" end="`" contained contains=ALL
+syn cluster formlStringSpecial contains=formlInterpolation
+
+syn region  formlString start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=@formlStringSpecial
 
 "syn match formlPair contained '\[a-z]\+'
 syn cluster formlCluster contains=@formlBinding

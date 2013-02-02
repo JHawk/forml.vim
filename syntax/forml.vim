@@ -51,3 +51,5 @@ hi def link formlType           Typedef
 hi def link formlExist          Todo
 
 hi def link javascriptOpenClose SpecialChar
+setlocal expandtab
+setlocal autoindent

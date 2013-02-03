@@ -14,7 +14,7 @@ Setup pathogen
 
 ### Or copy & paste
 
-Copy the ftdetect/forml.vim file to your .vim/ftdetect/ dir
-Copy the syntax/forml.vim file to your .vim/syntax/ dir
+- Copy the ftdetect/forml.vim file to your .vim/ftdetect/ dir
+- Copy the syntax/forml.vim file to your .vim/syntax/ dir
 
-Write some forml
+Write some Forml

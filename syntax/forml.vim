@@ -17,9 +17,11 @@ syn match formlNumber         "\<-\?[0-9]\+\>"
 syn match formlType           "\(\<[A-Z][a-zA-Z0-9_']*\)\=\<[A-Z][a-zA-Z0-9_']*\>"
 syn match javascriptOpenClose '`' display
 syn match formlIdentifier     "\<[_[:lower:]][_[:alnum:]]*[?!=]\=" contains=NONE display transparent
+"syn match forwardPipeFn       "\<[']\=[_[:lower:]][_[:alnum:]]*[?!=]\="
 syn match formlBool           "\<\(true\|false\)\>" 
 syn match formlSpecial        "\<\(inline\)\>"
-syn match formlStatement      "\<\(do!\|do\|private\|if\|then\|else\)\>" 
+syn match formlStatement      "\<\(do!\|do\|private\)\>" 
+syn match formlConditional    "\<\(if\|then\|else\)\>" 
 syn match formlFn             "\<\(return\|yield\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
@@ -44,8 +46,10 @@ hi def link formlOperator       Operator
 hi def link formlSpecial        Special
 hi def link formlBool           Boolean
 hi def link formlString         String
-hi def link formlStatement      Label
+hi def link formlStatement      Statement
+hi def link formlConditional    Conditional
 hi def link formlFn             Function
+hi def link forwardPipeFn       Function
 hi def link formlType           Typedef
 hi def link javascriptOpenClose SpecialChar
 hi def link formlSigArrow       Delimiter

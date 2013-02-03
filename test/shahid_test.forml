@@ -2,6 +2,7 @@
 
 -- function names are highlighted
 module testmod
+  [: 1,2,3] 'map (λx = x * 2)
 
   some_fun x = do
     let y = 10

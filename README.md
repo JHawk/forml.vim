@@ -7,7 +7,7 @@ Syntax highlighting for the [Forml](https://github.com/texodus/forml) programmin
 
 ### Use [Pathogen](https://github.com/tpope/vim-pathogen)
 
-Setup pathogen
+Setup pathogen then:
 
     cd ~/.vim/bundle
     git clone https://github.com/JHawk/forml.vim.git

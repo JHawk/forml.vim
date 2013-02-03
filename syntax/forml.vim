@@ -19,11 +19,12 @@ syn match javascriptOpenClose '`' display
 syn match formlIdentifier     "\<[_[:lower:]][_[:alnum:]]*[?!=]\=" contains=NONE display transparent
 syn match formlBool           "\<\(true\|false\)\>" 
 syn match formlSpecial        "\<\(inline\)\>"
-syn match formlStatement      "\<\(do!\|do\|private\|return\|if\|then\|else\|yield\)\>" 
+syn match formlStatement      "\<\(do!\|do\|private\|if\|then\|else\)\>" 
+syn match formlFn             "\<\(return\|yield\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
 
-syn keyword formlNestedKeywords let open as module nextgroup=formlBinding skipwhite
+syn keyword formlKeywords let open as module nextgroup=formlBinding skipwhite
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 
 syn region  formlInterpolation matchgroup=javascriptOpenClose start="`" end="`" contained contains=ALL
@@ -37,13 +38,14 @@ let b:current_syntax = "forml"
 hi def link formlNumber         Number
 hi def link formlTodo           Todo
 hi def link formlTopKeywords    Structure
-hi def link formlNestedKeywords Keyword
+hi def link formlKeywords       Keyword
 hi def link formlComment        Comment
 hi def link formlOperator       Operator
 hi def link formlSpecial        Special
 hi def link formlBool           Boolean
 hi def link formlString         String
 hi def link formlStatement      Label
+hi def link formlFn             Function
 hi def link formlType           Typedef
 hi def link javascriptOpenClose SpecialChar
 hi def link formlSigArrow       Delimiter

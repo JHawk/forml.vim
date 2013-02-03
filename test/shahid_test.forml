@@ -2,6 +2,13 @@
 
 -- function names are highlighted
 module testmod
+
+  some_fun x = do
+    let y = 10
+
+    z <- rand 100
+    log "interpolated string `x + y + z`"
+
   foo x y = z
 
   foo(x, y) = z
@@ -12,7 +19,7 @@ module testmod
   -- TODO FIXME XXX NOTE should be highlighted
 
   -- inline is a keyword
-  inline object? x y = do!``
+  inline object? x y = do! `undefined`
 
   -- >>= x y = x >> y
 
@@ -27,7 +34,6 @@ module testmod
       ans <- `x + y`
       return (10 == ans)
 
-
   foo: JS a -> JS b
 
   (>>): JS a -> JS b
@@ -38,5 +44,3 @@ module testmod
 
   true == true
   false == false
-
-  let x = "foo"

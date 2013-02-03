@@ -5,8 +5,8 @@ Syntax highlighting for the [Forml](https://github.com/texodus/forml) programmin
 
 ### Usage
 
-Copy the ftdetect/forml.vim file to your .vim/ftdetect/ dir
+  - Copy the ftdetect/forml.vim file to your .vim/ftdetect/ dir
 
-Copy the syntax/forml.vim file to your .vim/syntax/ dir
+  - Copy the syntax/forml.vim file to your .vim/syntax/ dir
 
 Write some forml

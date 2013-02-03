@@ -1,7 +1,7 @@
 forml.vim
 =========
 
-Syntax highlighting for the [Forml](https://github.com/texodus/forml) programming language.
+### Syntax highlighting for the [Forml](https://github.com/texodus/forml) programming language.
 
 ## Usage
 

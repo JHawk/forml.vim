@@ -23,10 +23,11 @@ syn match formlSpecial        "\<\(inline\)\>"
 syn match formlStatement      "\<\(do!\|do\|private\)\>" 
 syn match formlConditional    "\<\(if\|then\|else\)\>" 
 syn match formlFn             "\<\(return\|yield\)\>"
+syn match formlStructure      "\<\(let\|var\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
 
-syn keyword formlKeywords let open as module nextgroup=formlBinding skipwhite
+syn keyword formlKeywords open as module nextgroup=formlBinding skipwhite
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 
 syn region  formlInterpolation matchgroup=javascriptOpenClose start="`" end="`" contained contains=ALL
@@ -40,6 +41,7 @@ let b:current_syntax = "forml"
 hi def link formlNumber         Number
 hi def link formlTodo           Todo
 hi def link formlTopKeywords    Structure
+hi def link formlStructure      Structure
 hi def link formlKeywords       Keyword
 hi def link formlComment        Comment
 hi def link formlOperator       Operator

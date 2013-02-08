@@ -19,15 +19,15 @@ syn match javascriptOpenClose '`' display
 syn match formlIdentifier     "\<[_[:lower:]][_[:alnum:]]*[?!=]\=" contains=NONE display transparent
 "syn match forwardPipeFn       "\<[']\=[_[:lower:]][_[:alnum:]]*[?!=]\="
 syn match formlBool           "\<\(true\|false\)\>" 
-syn match formlSpecial        "\<\(inline\)\>"
+syn match formlSpecial        "\<\(inline\|lazy\)\>"
 syn match formlStatement      "\<\(do!\|do\|private\)\>" 
-syn match formlConditional    "\<\(if\|then\|else\)\>" 
+syn match formlConditional    "\<\(if\|then\|else\|when\|with\|and\|or\|is\|isnt\)\>" 
 syn match formlFn             "\<\(return\|yield\)\>"
-syn match formlStructure      "\<\(let\|var\)\>"
+syn match formlStructure      "\<\(let\|var\|where\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
 
-syn keyword formlKeywords open as module nextgroup=formlBinding skipwhite
+syn keyword formlKeywords open as module in nextgroup=formlBinding skipwhite
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 
 syn region  formlInterpolation matchgroup=javascriptOpenClose start="`" end="`" contained contains=ALL

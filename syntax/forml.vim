@@ -26,8 +26,8 @@ syn match formlFn             "\<\(return\|yield\)\>"
 syn match formlStructure      "\<\(let\|var\|where\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
-
-syn keyword formlKeywords open as module in nextgroup=formlBinding skipwhite
+syn match formlInclude        "\<\(as\|open\|in\)\>"
+syn keyword formlKeywords module nextgroup=formlBinding skipwhite
 syn keyword formlTodo contained TODO FIXME XXX NOTE
 
 syn region  formlInterpolation matchgroup=javascriptOpenClose start="`" end="`" contained contains=ALL
@@ -56,6 +56,7 @@ hi def link formlType           Typedef
 hi def link javascriptOpenClose SpecialChar
 hi def link formlSigArrow       Delimiter
 hi def link formlDelimiter      Delimiter
+hi def link formlInclude        Include
 
 setlocal expandtab
 setlocal autoindent

@@ -2,7 +2,7 @@
 
 -- function names are highlighted
 module testmod
-  open blah.thing
+  open blah.thing as bt
 
   [: 1,2,3] 'map (λx = x * 2)
 

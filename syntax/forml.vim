@@ -12,7 +12,6 @@ elseif exists("b:current_syntax")
 endif
 
 syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~:.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
-syn match formlDelimiter      "(\|)\|\[\|\]\|{\|}"
 syn match formlNumber         "\<-\?[0-9]\+\>"
 syn match formlType           "\(\<[A-Z][a-zA-Z0-9_']*\)\=\<[A-Z][a-zA-Z0-9_']*\>"
 syn match javascriptOpenClose '`' display
@@ -26,6 +25,7 @@ syn match formlFn             "\<\(return\|yield\)\>"
 syn match formlStructure      "\<\(let\|var\|where\)\>"
 syn match formlSigArrow       "->"
 syn match formlComment        "--.*$" contains=formlTodo
+syn match formlDelimiter      "(\|)\|\[[:]\=\|[:]\=\]\|{\|}"
 syn match formlInclude        "\<\(as\|open\|in\)\>"
 syn keyword formlKeywords module nextgroup=formlBinding skipwhite
 syn keyword formlTodo contained TODO FIXME XXX NOTE

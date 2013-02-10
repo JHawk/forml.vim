@@ -4,7 +4,9 @@
 module testmod
   open blah.thing as bt
 
-  [: 1,2,3] 'map (λx = x * 2)
+  [: 1,2,3 :] 'map (λx = x * 2)
+
+  [1,2,3]
 
   some_fun x = do
     let y = 10
@@ -24,7 +26,7 @@ module testmod
   -- inline is a keyword
   inline object? x y = do! `undefined`
 
-  -- >>= x y = x >> y
+  >>= x y = x >> y
 
   -- a bunch of reserved words
   [: if then else let when with and or do do! var lazy in is isnt where ]

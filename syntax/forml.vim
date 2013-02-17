@@ -7,9 +7,11 @@
 
 if version < 600
   syn clear
-elseif exists("b:current_syntax")
+elseif exists("b:current_syntax") && b:current_syntax == 'forml'
   finish
 endif
+
+syn include @formlJS syntax/javascript.vim
 
 syn match formlOperator       "\(\<[A-Z][a-zA-Z0-9_']*\.\)\=[-!#λ$%&\*\+/<=>\?@\\^|~:.][-!#λ$%&\*\+/<=>\?@\\^|~:.]*"
 syn match formlNumber         "\<-\?[0-9]\+\>"
